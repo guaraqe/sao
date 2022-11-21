@@ -60,15 +60,6 @@ module.exports = function(grunt) {
                 jsfiles.join(" "))
         }
     },
-    po2json: {
-        options: {
-            format: 'raw'
-        },
-        all: {
-            src: ['locale/*.po'],
-            dest: 'locale/'
-        }
-    },
     concat: {
         dist: {
             src: jsfiles,
@@ -155,10 +146,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-less');
-  grunt.loadNpmTasks('grunt-po2json');
 
   grunt.registerTask('default', 'Build for production.', function() {
-    grunt.task.run(['concat', 'jshint', 'uglify', 'less', 'po2json']);
+    grunt.task.run(['concat', 'jshint', 'uglify', 'less']);
     });
   grunt.registerTask('dev', 'Build for development.', function() {
     grunt.task.run(['concat', 'jshint', 'less:dev']);
